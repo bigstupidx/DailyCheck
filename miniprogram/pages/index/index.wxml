@@ -1,0 +1,41 @@
+<view class="all">
+	<view class="bar">
+		<view class="previous" bindtap="handleCalendar" data-handle="prev">
+			<image src='/images/arrow_left1.png' class="img"></image>
+		</view>
+		<view class="today">{{year}}年{{month}}月</view>
+
+		<view class="next" bindtap="handleCalendar" data-handle="next">
+			<image src='/images/arrow_right1.png' class="img"></image>
+		</view>
+	</view>
+	<view class="box">
+		<view class="weekTitle">
+			<view class="weekItem">日</view>
+			<view class="weekItem">一</view>
+			<view class="weekItem">二</view>
+			<view class="weekItem">三</view>
+			<view class="weekItem">四</view>
+			<view class="weekItem">五</view>
+			<view class="weekItem">六</view>
+		</view>
+		<view class="dayContent">
+			<view wx:for="{{dayList}}" wx:key="*this">
+				<view wx:if="{{item.status}}" class="dayItem">
+					<view wx:if="{{item.status==1}}" >
+						<image class='image' mode='widthFix' src='/images/sign.png'></image>
+						<text class="child" class="text">{{item.content}}</text>
+					</view>
+					<view wx:elif="{{item.status==3}}" >
+						<image class='image' mode='widthFix' src='/images/sign.png'></image>
+						<text class="child" class="textToday">{{item.content}}</text>
+					</view>
+					<view wx:else >
+						<text class="child" class="textToday">{{item.content}}</text>
+					</view>
+				</view>
+				<view wx:else class="dayItem">{{item.content}}</view>
+			</view>
+		</view>
+	</view>
+</view>

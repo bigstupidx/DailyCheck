@@ -1,0 +1,5 @@
+<!--pages/menu/menu.wxml-->
+
+<button type="primary" bindtap="clickAddData"> 打卡</button>
+
+<text wx:for="{{signedDays}}" wx:key="*this">{{item.date}}</text>
